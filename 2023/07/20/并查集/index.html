@@ -16,22 +16,23 @@
   <meta name="author" content="希梦Cidream">
   <meta name="keywords" content="">
   
-    <meta name="description" content="目前博客用的是Fuid主题，自带的代码块很丑，想着美化一下。   首先到hexo-theme-fluid主题根目录下source&#x2F;css&#x2F; 创建名为macpanel.styl的文件并加入以下内容。1234567891011121314151617181920212223242526272829303132int indeg[N];bool topsort()&amp;#123;    &#x2F;&#x2F;--1--&#x2F;&#x2F;">
+    <meta name="description" content="step 0 引入 并查集是一种可以动态维护(合并、查询)若干个不重叠的集合的数据结构。  step 1 定义集合我们可以在每个集合中选择任意一个固定元素作为集合的代表——这种方法叫做“代表元表示法”。 step 2 定义结构 ** case 1 链式结构 用邻接表表示集合**  这种结构可以高效合并集合。但查询元素归属集合会浪费大量的时间。   ** case 2 线性结构 用一个数组存储集合">
 <meta property="og:type" content="article">
-<meta property="og:title" content="树状数组">
-<meta property="og:url" content="http://example.com/2023/07/17/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/index.html">
+<meta property="og:title" content="并查集">
+<meta property="og:url" content="http://example.com/2023/07/20/%E5%B9%B6%E6%9F%A5%E9%9B%86/index.html">
 <meta property="og:site_name" content="希梦Cidream">
-<meta property="og:description" content="目前博客用的是Fuid主题，自带的代码块很丑，想着美化一下。   首先到hexo-theme-fluid主题根目录下source&#x2F;css&#x2F; 创建名为macpanel.styl的文件并加入以下内容。1234567891011121314151617181920212223242526272829303132int indeg[N];bool topsort()&amp;#123;    &#x2F;&#x2F;--1--&#x2F;&#x2F;">
+<meta property="og:description" content="step 0 引入 并查集是一种可以动态维护(合并、查询)若干个不重叠的集合的数据结构。  step 1 定义集合我们可以在每个集合中选择任意一个固定元素作为集合的代表——这种方法叫做“代表元表示法”。 step 2 定义结构 ** case 1 链式结构 用邻接表表示集合**  这种结构可以高效合并集合。但查询元素归属集合会浪费大量的时间。   ** case 2 线性结构 用一个数组存储集合">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-07-17T12:35:35.000Z">
-<meta property="article:modified_time" content="2023-07-19T08:08:06.000Z">
+<meta property="og:image" content="http://example.com/img/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E5%B9%B6%E6%9F%A5%E9%9B%86-%E8%B7%AF%E5%BE%84%E5%8E%8B%E7%BC%A9.png">
+<meta property="article:published_time" content="2023-07-20T00:47:09.000Z">
+<meta property="article:modified_time" content="2023-07-20T00:50:00.000Z">
 <meta property="article:author" content="希梦Cidream">
-<meta property="article:tag" content="数据结构">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/img/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E5%B9%B6%E6%9F%A5%E9%9B%86-%E8%B7%AF%E5%BE%84%E5%8E%8B%E7%BC%A9.png">
   
   
   
-  <title>树状数组 | 希梦Cidream</title>
+  <title>并查集 | 希梦Cidream</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -201,7 +202,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="树状数组"></span>
+            <span id="subtitle" data-typed-text="并查集"></span>
           
         </div>
 
@@ -217,7 +218,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          522 字
+          1.2k 字
         
       </span>
     
@@ -228,7 +229,7 @@
         
         
         
-          5 分钟
+          10 分钟
         
       </span>
     
@@ -265,22 +266,62 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">树状数组</h1>
+            <h1 id="seo-header">并查集</h1>
             
             
               <div class="markdown-body">
                 
-                <p>目前博客用的是Fuid主题，自带的代码块很丑，想着美化一下。</p>
-<ul>
-<li><ol>
-<li>首先到<code>hexo-theme-fluid</code>主题根目录下<code>source/css/</code> 创建名为<code>macpanel.styl</code>的文件并加入以下内容。<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-type">int</span> indeg[N];<br><span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">topsort</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-comment">//--1--//</span><br>    <span class="hljs-type">int</span> hh=<span class="hljs-number">0</span>,tt=<span class="hljs-number">-1</span>,q[N];<br>    <span class="hljs-comment">//--2--//</span><br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>;i&lt;=n;i++)<br>    &#123;<br>        <span class="hljs-keyword">if</span> (indeg[i] == <span class="hljs-number">0</span>)<br>        &#123;<br>            q[tt++]=i;<br>        &#125;<br>    &#125;<br>    <span class="hljs-comment">//--3--//</span><br>    <span class="hljs-keyword">while</span>(hh&lt;=tt)<br>    &#123;<br>        <span class="hljs-comment">//--4--//</span><br>        <span class="hljs-type">int</span> t=q[hh];<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = h[t];i != <span class="hljs-number">-1</span>;i = ne[i])<br>        &#123;<br>            <span class="hljs-type">int</span> b = e[i];<br>            indeg[b]--;<br>            <span class="hljs-comment">//--5--//</span><br>            <span class="hljs-keyword">if</span>(indeg[b] == <span class="hljs-number">0</span>)<br>            &#123;<br>                q[tt++]=b;<br>            &#125;<br>        &#125;<br>        <span class="hljs-comment">//--6--//</span><br>    &#125;<br>    <span class="hljs-keyword">return</span> tt == n - <span class="hljs-number">1</span>; <br>&#125;<br></code></pre></td></tr></table></figure></li>
-</ol>
-</li>
-<li><ol start="2">
-<li>到管理主题的<code>_config.yml</code>文件还是说<code>_config.fluid.yml</code>文</li>
-</ol>
-</li>
-</ul>
+                <hr>
+<h1 id="step-0-引入"><a href="#step-0-引入" class="headerlink" title="step 0 引入"></a>step 0 引入</h1><blockquote>
+<p><strong>并查集</strong>是一种可以<strong>动态维护</strong>(合并、查询)若干个<strong>不重叠</strong>的集合的<strong>数据结构</strong>。</p>
+</blockquote>
+<h1 id="step-1-定义集合"><a href="#step-1-定义集合" class="headerlink" title="step 1 定义集合"></a>step 1 定义集合</h1><p>我们可以在每个集合中选择任意一个固定元素作为集合的代表——这种方法叫做“<strong>代表元表示法</strong>”。</p>
+<h1 id="step-2-定义结构"><a href="#step-2-定义结构" class="headerlink" title="step 2 定义结构"></a>step 2 定义结构</h1><blockquote>
+<p>** <font color=#008000>case 1 链式结构</font> 用邻接表表示集合**<br>  这种结构可以<strong>高效合并集合</strong>。但<strong>查询元素归属集合</strong>会浪费<strong>大量的时间</strong>。</p>
+</blockquote>
+<blockquote>
+<p>** <font color=#008000>case 2 线性结构</font> 用一个数组存储集合归属**<br>  这种结构可以<strong>查询元素归属集合</strong>。但<strong>高效合并集合</strong>会浪费<strong>大量的时间</strong>。</p>
+</blockquote>
+<blockquote>
+<p><strong><font color=#008000>case 3 链式结构</font> 用邻接表表示集合</strong><br>  <strong>所有集合</strong>会以构成<strong>一片森林</strong>，这种结构可以较好地<strong>合并集合</strong>和<strong>查询集合归属</strong>所以<strong>效率更高</strong>。</p>
+</blockquote>
+<h1 id="step-3-实现结构"><a href="#step-3-实现结构" class="headerlink" title="step 3 实现结构"></a>step 3 实现结构</h1><p>我们可以将<strong>根节点</strong>的<strong>代表元</strong>设为指向自己（根结点）。<br><font color=#008000><strong>合并集合</strong></font>，将其中一棵<strong>树根</strong>向<strong>另一棵树</strong>的<strong>树根</strong>。<br><font color=#008000><strong>查询集合归属</strong></font>，从该<strong>节点向上递归</strong>找着<strong>根节点</strong>从而确定<strong>集合归属</strong>。</p>
+<h1 id="step-4-优化结构"><a href="#step-4-优化结构" class="headerlink" title="step 4 优化结构"></a>step 4 优化结构</h1><p>以上的并查集<strong>查询效率效率仍然较低</strong>。我们将引入两种<strong>优化方式</strong>，分别是<strong>路径压缩</strong>和<strong>按秩合并（启发式合并）</strong>。</p>
+<h3 id="🔮路径压缩"><a href="#🔮路径压缩" class="headerlink" title="🔮路径压缩"></a>🔮路径压缩</h3><p>在<strong>case 1</strong>中，直接使用<strong>数组保存集合代表</strong>的<strong>查询效率很高</strong>我们考虑把<strong>两种思路</strong>进行结合，实际上，我们并不关心<strong>这棵树的具体形态</strong>。这就意味着下图<strong>两棵树</strong>是<strong>等价</strong>的。<br><img src="/img/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E5%B9%B6%E6%9F%A5%E9%9B%86-%E8%B7%AF%E5%BE%84%E5%8E%8B%E7%BC%A9.png" srcset="/img/loading.gif" lazyload><br>因此我们可以在每次执行<strong>get操作</strong>的同时把访问过的<strong>每个节点（查询元素的全部祖先）</strong>都指向<strong>树根</strong>，这种<strong>优化方法</strong>被称为<strong>路径压缩</strong>。</p>
+<h3 id="🔮按秩合并（启发式合并）"><a href="#🔮按秩合并（启发式合并）" class="headerlink" title="🔮按秩合并（启发式合并）"></a>🔮按秩合并（启发式合并）</h3><p>在<strong>合并集合</strong>的过程中，<strong>树高</strong>越<strong>高</strong>则<strong>效率</strong>越<strong>低</strong>，这启发我们将<strong>小结构合并到大结构</strong>使<strong>树高</strong>尽可能的<strong>小</strong>，我们可以在<strong>合并集合</strong>时比较<strong>树高的大小（集合大小）</strong>，在<strong>实际应用</strong>中应用较少。</p>
+<h1 id="step-5-时间复杂度"><a href="#step-5-时间复杂度" class="headerlink" title="step 5 时间复杂度"></a>step 5 时间复杂度</h1><table>
+<thead>
+<tr>
+<th>优化</th>
+<th>时间复杂度</th>
+<th>注解</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>无优化</td>
+<td>O(n)</td>
+<td>退化成链</td>
+</tr>
+<tr>
+<td>单使用路径压缩</td>
+<td>O(log n)</td>
+<td>效率较高</td>
+</tr>
+<tr>
+<td>单使用按秩合并</td>
+<td>O(log n)</td>
+<td>效率较高</td>
+</tr>
+<tr>
+<td>同时使用两种优化</td>
+<td>O(α(n)）</td>
+<td>近似常数</td>
+</tr>
+</tbody></table>
+<h1 id="step-6-代码模板"><a href="#step-6-代码模板" class="headerlink" title="step 6 代码模板"></a>step 6 代码模板</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-comment">// 并查集</span><br><span class="hljs-type">int</span> fa[SIZE];<br><span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt;= n; i++) fa[i] = i;<br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">get</span><span class="hljs-params">(<span class="hljs-type">int</span> x)</span> </span>&#123;<br>	<span class="hljs-keyword">if</span> (x == fa[x]) <span class="hljs-keyword">return</span> x;<br>	<span class="hljs-keyword">return</span> fa[x] = <span class="hljs-built_in">get</span>(fa[x]);<br>&#125;<br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">merge</span><span class="hljs-params">(<span class="hljs-type">int</span> x, <span class="hljs-type">int</span> y)</span> </span>&#123;<br>	fa[<span class="hljs-built_in">get</span>(x)] = <span class="hljs-built_in">get</span>(y);<br>&#125;<br><span class="hljs-comment">// 边带权的并查集</span><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">get</span><span class="hljs-params">(<span class="hljs-type">int</span> x)</span> </span>&#123;<br>	<span class="hljs-keyword">if</span> (x == fa[x]) <span class="hljs-keyword">return</span> x;<br>	<span class="hljs-type">int</span> root = <span class="hljs-built_in">get</span>(fa[x]);  <span class="hljs-comment">// 递归计算集合代表</span><br>	d[x] += d[fa[x]];       <span class="hljs-comment">// 维护d数组——对边权求和</span><br>	<span class="hljs-keyword">return</span> fa[x] = root;    <span class="hljs-comment">// 路径压缩 </span><br>&#125;<br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">merge</span><span class="hljs-params">(<span class="hljs-type">int</span> x, <span class="hljs-type">int</span> y)</span> </span>&#123;<br>	x = <span class="hljs-built_in">get</span>(x), y = <span class="hljs-built_in">get</span>(y);<br>	fa[x] = y, d[x] = size[y];<br>	size[y] += size[x];<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+
 
                 
               </div>
@@ -289,13 +330,6 @@
             <div>
               <div class="post-metas my-3">
   
-  
-    <div class="post-meta">
-      <i class="iconfont icon-tags"></i>
-      
-        <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="print-no-link">#数据结构</a>
-      
-    </div>
   
 </div>
 
