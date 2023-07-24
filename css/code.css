@@ -1,0 +1,25 @@
+/* 横向滚动条 */
+::-webkit-scrollbar {
+  height: 10px; /* 定义滚动条高度 */
+}
+/* 定义箭头图形 */
+::-webkit-scrollbar-thumb {
+  background-color: #aaa; /* 滚动条颜色 */
+  border-radius: 5px; /* 圆角半径 */
+  border: none; /* 去掉边框 */
+}
+/* 定义箭头样式 */
+::-webkit-scrollbar-button {
+  width: 10px; /* 定义箭头宽度 */
+  height: 10px; /* 定义箭头高度 */
+}
+/* 箭头向右 */
+::-webkit-scrollbar-button:horizontal:increment {
+  background-image: url("right-arrow.png"); /* 图片路径 */
+  background-repeat: no-repeat; /* 防止图片平铺 */
+}
+/* 箭头向左 */
+::-webkit-scrollbar-button:horizontal:decrement {
+  background-image: url("left-arrow.png"); /* 图片路径 */
+  background-repeat: no-repeat; /* 防止图片平铺 */
+}
