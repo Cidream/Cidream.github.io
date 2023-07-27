@@ -33,16 +33,16 @@ function snowCanvas() {
     /* 添加Dom结点 */
     var snowcanvas = document.createElement("canvas");
     snowcanvas.id = "snowfall";
-    snowcanvas.width = window.innerWidth;
-    snowcanvas.height = document.body.clientHeight;
+    snowcanvas.width = window.innerWidth-10;
+    snowcanvas.height = document.body.clientHeight-10;
     snowcanvas.setAttribute("style", "position:absolute; top: 0; left: 0; z-index: 1; pointer-events: none;");
     document.getElementsByTagName("body")[0].appendChild(snowcanvas);
     this.canvas = snowcanvas;
     this.ctx = snowcanvas.getContext("2d");
     /* 窗口大小改变的处理 */
     window.onresize = function () {
-        snowcanvas.width = window.innerWidth;
-        /* snowcanvas.height = window.innerHeight */
+        snowcanvas.width = window.innerWidth-10;
+        snowcanvas.height = window.innerHeight-10;
     }
 }
 /* 雪运动对象 */
