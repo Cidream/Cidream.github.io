@@ -25,10 +25,10 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/img/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E5%B9%B6%E6%9F%A5%E9%9B%86-%E8%B7%AF%E5%BE%84%E5%8E%8B%E7%BC%A9.png">
 <meta property="article:published_time" content="2023-07-20T00:47:09.000Z">
-<meta property="article:modified_time" content="2023-07-28T10:08:58.000Z">
+<meta property="article:modified_time" content="2023-07-28T10:19:28.000Z">
 <meta property="article:author" content="希梦Cidream">
-<meta property="article:tag" content="并查集">
 <meta property="article:tag" content="数据结构">
+<meta property="article:tag" content="并查集">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="http://example.com/img/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E5%B9%B6%E6%9F%A5%E9%9B%86-%E8%B7%AF%E5%BE%84%E5%8E%8B%E7%BC%A9.png">
   
@@ -317,26 +317,26 @@
 </thead>
 <tbody><tr>
 <td>无优化</td>
-<td>O(n)</td>
+<td>$O(n)$</td>
 <td>退化成链</td>
 </tr>
 <tr>
 <td>单使用路径压缩</td>
-<td>O(log n)</td>
+<td>$O(log n)$</td>
 <td>效率较高</td>
 </tr>
 <tr>
 <td>单使用按秩合并</td>
-<td>O(log n)</td>
+<td>$O(log n)$</td>
 <td>效率较高</td>
 </tr>
 <tr>
 <td>同时使用两种优化</td>
-<td>$ O(α(n)) $</td>
+<td>$O(α(n))$</td>
 <td>近似常数</td>
 </tr>
 </tbody></table>
-<h1 id="6-扩展结构"><a href="#6-扩展结构" class="headerlink" title="6 扩展结构"></a>6 扩展结构</h1><p><strong>并查集</strong>能在一张<strong>无向图</strong>中<strong>维护节点</strong>之间的<strong>连通性</strong>，<strong>并查集</strong>可以<strong>动态维护</strong>许多具有<strong>传递性的关系</strong>，所以我们可以将<strong>树</strong>上<strong>每条边</strong>上赋上一个<strong>权值</strong>，保存<strong>节点（x）</strong> 到父<strong>节点（fa[x]）</strong> 之间的<strong>边权</strong>，<strong>路径压缩</strong>的过程中，<strong>统计每个节点</strong>到<strong>树根</strong>之间<strong>路径</strong>的一些<strong>信息</strong>，这就是“<strong>边带权的并查集</strong>”。</p>
+<h1 id="6-扩展结构"><a href="#6-扩展结构" class="headerlink" title="6 扩展结构"></a>6 扩展结构</h1><p><strong>并查集</strong>能在一张<strong>无向图</strong>中<strong>维护节点</strong>之间的<strong>连通性</strong>，<strong>并查集</strong>可以<strong>动态维护</strong>许多具有<strong>传递性的关系</strong>，所以我们可以将<strong>树</strong>上<strong>每条边</strong>上赋上一个<strong>权值</strong>，保存<strong>节点（$x$）</strong> 到父<strong>节点（$fa[x]$）</strong> 之间的<strong>边权</strong>，<strong>路径压缩</strong>的过程中，<strong>统计每个节点</strong>到<strong>树根</strong>之间<strong>路径</strong>的一些<strong>信息</strong>，这就是“<strong>边带权的并查集</strong>”。</p>
 <h1 id="7-代码模板"><a href="#7-代码模板" class="headerlink" title="7 代码模板"></a>7 代码模板</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-comment">// 并查集</span><br><span class="hljs-type">int</span> fa[SIZE];<br><span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt;= n; i++) fa[i] = i;<br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">get</span><span class="hljs-params">(<span class="hljs-type">int</span> x)</span> </span>&#123;<br>	<span class="hljs-keyword">if</span> (x == fa[x]) <span class="hljs-keyword">return</span> x;<br>	<span class="hljs-keyword">return</span> fa[x] = <span class="hljs-built_in">get</span>(fa[x]);<br>&#125;<br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">merge</span><span class="hljs-params">(<span class="hljs-type">int</span> x, <span class="hljs-type">int</span> y)</span> </span>&#123;<br>	fa[<span class="hljs-built_in">get</span>(x)] = <span class="hljs-built_in">get</span>(y);<br>&#125;<br><span class="hljs-comment">// 边带权的并查集</span><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">get</span><span class="hljs-params">(<span class="hljs-type">int</span> x)</span> </span>&#123;<br>	<span class="hljs-keyword">if</span> (x == fa[x]) <span class="hljs-keyword">return</span> x;<br>	<span class="hljs-type">int</span> root = <span class="hljs-built_in">get</span>(fa[x]);  <span class="hljs-comment">// 递归计算集合代表</span><br>	d[x] += d[fa[x]];       <span class="hljs-comment">// 维护d数组——对边权求和</span><br>	<span class="hljs-keyword">return</span> fa[x] = root;    <span class="hljs-comment">// 路径压缩 </span><br>&#125;<br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">merge</span><span class="hljs-params">(<span class="hljs-type">int</span> x, <span class="hljs-type">int</span> y)</span> </span>&#123;<br>	x = <span class="hljs-built_in">get</span>(x), y = <span class="hljs-built_in">get</span>(y);<br>	fa[x] = y, d[x] = size[y];<br>	size[y] += size[x];<br>&#125;<br></code></pre></td></tr></table></figure>
 <h1 id="last-总结"><a href="#last-总结" class="headerlink" title="last 总结"></a>last 总结</h1><p>这个<strong>数据结构</strong>巧妙的解决<strong>集合</strong>的基本问题，后续我们会陆陆续续做些题<strong>巩固</strong>一下所学知识。</p>
 
@@ -379,9 +379,9 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E5%B9%B6%E6%9F%A5%E9%9B%86/" class="print-no-link">#并查集</a>
-      
         <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="print-no-link">#数据结构</a>
+      
+        <a href="/tags/%E5%B9%B6%E6%9F%A5%E9%9B%86/" class="print-no-link">#并查集</a>
       
     </div>
   
@@ -457,6 +457,12 @@
 
 
   
+
+
+  
+  
+
+
 
 
 
@@ -650,6 +656,49 @@
 
 
   <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
 
   <script  src="/js/local-search.js" ></script>
 
