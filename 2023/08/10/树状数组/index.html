@@ -16,21 +16,22 @@
   <meta name="author" content="希梦Cidream">
   <meta name="keywords" content="">
   
-    <meta name="description" content="-1 前言接下来我们要学习三种数据结构，它们的作用都是维护区间，基本原理都是将大区间划分为小区间，维护小区间合并到大区间中。 他们的区间划分方法不同，对结构的维护方法也不同，也各有所长，这种数据结构代码短难度小，但思想不容易理解且应用广。 0 引入 树状数组（Binary Indexed Tree） 是一种可以动态维护(查询、修改) 区间前缀和的数据结构。  1 结构思想利用二进制将大区间分成若干">
+    <meta name="description" content="-1 前言接下来我们要学习三种数据结构，它们的作用都是维护区间，基本原理都是将大区间划分为小区间，维护小区间合并到大区间中。 他们的区间划分方法不同，对结构的维护方法也不同，也各有所长，这种数据结构代码短难度小，但思想不容易理解且应用广。 0 引入 树状数组（Binary Indexed Tree） 是一种可以动态维护(查询、修改) 区间前缀和的数据结构。  1 结构思想利用二进制将大区间分成若">
 <meta property="og:type" content="article">
 <meta property="og:title" content="树状数组">
 <meta property="og:url" content="https://cidream.github.io/2023/08/10/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/index.html">
 <meta property="og:site_name" content="希梦Cidream">
-<meta property="og:description" content="-1 前言接下来我们要学习三种数据结构，它们的作用都是维护区间，基本原理都是将大区间划分为小区间，维护小区间合并到大区间中。 他们的区间划分方法不同，对结构的维护方法也不同，也各有所长，这种数据结构代码短难度小，但思想不容易理解且应用广。 0 引入 树状数组（Binary Indexed Tree） 是一种可以动态维护(查询、修改) 区间前缀和的数据结构。  1 结构思想利用二进制将大区间分成若干">
+<meta property="og:description" content="-1 前言接下来我们要学习三种数据结构，它们的作用都是维护区间，基本原理都是将大区间划分为小区间，维护小区间合并到大区间中。 他们的区间划分方法不同，对结构的维护方法也不同，也各有所长，这种数据结构代码短难度小，但思想不容易理解且应用广。 0 引入 树状数组（Binary Indexed Tree） 是一种可以动态维护(查询、修改) 区间前缀和的数据结构。  1 结构思想利用二进制将大区间分成若">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cidream.github.io/img/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84-%E7%AB%99%E7%82%B9%E5%9C%B0%E5%9B%BE.png">
 <meta property="og:image" content="https://cidream.github.io/img/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84.png">
 <meta property="article:published_time" content="2023-08-10T01:00:00.000Z">
-<meta property="article:modified_time" content="2023-08-11T13:35:46.000Z">
+<meta property="article:modified_time" content="2023-08-11T14:02:50.000Z">
 <meta property="article:author" content="希梦Cidream">
 <meta property="article:tag" content="数据结构">
 <meta property="article:tag" content="树状数组">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://cidream.github.io/img/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84.png">
+<meta name="twitter:image" content="https://cidream.github.io/img/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84-%E7%AB%99%E7%82%B9%E5%9C%B0%E5%9B%BE.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
@@ -202,6 +203,18 @@
           
           
             <li class="nav-item">
+              <a class="nav-link" href="/map/" target="_self">
+                <i class="iconfont icon-map"></i>
+                <span>算法地图</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
               <a class="nav-link" href="/code/" target="_self">
                 <i class="iconfont icon-code"></i>
                 <span>代码模板</span>
@@ -351,7 +364,8 @@
             
               <div class="markdown-body">
                 
-                <h1 id="1-前言"><a href="#1-前言" class="headerlink" title="-1 前言"></a>-1 前言</h1><p>接下来我们要学习<strong>三种数据结构</strong>，它们的作用都是<strong>维护区间</strong>，<strong>基本原理</strong>都是将<strong>大区间</strong>划分为<strong>小区间</strong>，维护<strong>小区间</strong>合并到<strong>大区间</strong>中。 他们的<strong>区间划分</strong>方法不同，对<strong>结构</strong>的<strong>维护方法</strong>也不同，也<strong>各有所长</strong>，这种<strong>数据结构代码短难度小</strong>，但<strong>思想不容易理解</strong>且<strong>应用广</strong>。</p>
+                <p><img src="/img/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84-%E7%AB%99%E7%82%B9%E5%9C%B0%E5%9B%BE.png" srcset="/img/loading.gif" lazyload></p>
+<h1 id="1-前言"><a href="#1-前言" class="headerlink" title="-1 前言"></a>-1 前言</h1><p>接下来我们要学习<strong>三种数据结构</strong>，它们的作用都是<strong>维护区间</strong>，<strong>基本原理</strong>都是将<strong>大区间</strong>划分为<strong>小区间</strong>，维护<strong>小区间</strong>合并到<strong>大区间</strong>中。 他们的<strong>区间划分</strong>方法不同，对<strong>结构</strong>的<strong>维护方法</strong>也不同，也<strong>各有所长</strong>，这种<strong>数据结构代码短难度小</strong>，但<strong>思想不容易理解</strong>且<strong>应用广</strong>。</p>
 <h1 id="0-引入"><a href="#0-引入" class="headerlink" title="0 引入"></a>0 引入</h1><blockquote>
 <p><strong>树状数组（Binary Indexed Tree）</strong> 是一种可以<strong>动态维护(查询、修改) 区间前缀和</strong>的<strong>数据结构</strong>。</p>
 </blockquote>
