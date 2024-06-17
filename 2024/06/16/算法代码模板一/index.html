@@ -16,23 +16,27 @@
   <meta name="author" content="希梦Cidream">
   <meta name="keywords" content="">
   
-    <meta name="description" content="算法基础课相关代码模板活动链接 —— 算法基础课快速排序算法模板 —— 模板题 AcWing 785. 快速排序void quick_sort(int q[], int l, int r){    if (l &gt;&#x3D; r) return; 12345678int i &#x3D; l - 1, j &#x3D; r + 1, x &#x3D; q[l + r &gt;&gt; 1];while (i &lt; j">
+    <meta name="description" content="以下基础算法我会一一简略阐述 “时间永远都不够”——  01 快速排序算法 利用分治的原理，将待排序数列用二分的思想分成若干个小区间，对于每一个区间，选取一个基准元素（basic），再利用双指针的算法扫描区间，交换元素使大于基准元素在基准元素之后，使小于基准元素在基准元素之前。   02 归并排序算法03 整数二分算法04 浮点数二分算法05 高精度加法06 高精度减法07 高精度乘以低精度08">
 <meta property="og:type" content="article">
-<meta property="og:title" content="希梦Cidream">
-<meta property="og:url" content="https://cidream.github.io/2024/06/16/%E7%AE%97%E6%B3%95/index.html">
+<meta property="og:title" content="算法代码模板一[0&#x2F;16]">
+<meta property="og:url" content="https://cidream.github.io/2024/06/16/%E7%AE%97%E6%B3%95%E4%BB%A3%E7%A0%81%E6%A8%A1%E6%9D%BF%E4%B8%80/index.html">
 <meta property="og:site_name" content="希梦Cidream">
-<meta property="og:description" content="算法基础课相关代码模板活动链接 —— 算法基础课快速排序算法模板 —— 模板题 AcWing 785. 快速排序void quick_sort(int q[], int l, int r){    if (l &gt;&#x3D; r) return; 12345678int i &#x3D; l - 1, j &#x3D; r + 1, x &#x3D; q[l + r &gt;&gt; 1];while (i &lt; j">
+<meta property="og:description" content="以下基础算法我会一一简略阐述 “时间永远都不够”——  01 快速排序算法 利用分治的原理，将待排序数列用二分的思想分成若干个小区间，对于每一个区间，选取一个基准元素（basic），再利用双指针的算法扫描区间，交换元素使大于基准元素在基准元素之后，使小于基准元素在基准元素之前。   02 归并排序算法03 整数二分算法04 浮点数二分算法05 高精度加法06 高精度减法07 高精度乘以低精度08">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-06-16T12:41:57.030Z">
-<meta property="article:modified_time" content="2024-06-16T12:43:32.000Z">
+<meta property="og:image" content="b:\Cidream-blog\source_posts\img\image-20240617154227963.png">
+<meta property="article:published_time" content="2024-06-16T01:00:00.000Z">
+<meta property="article:modified_time" content="2024-06-17T07:43:12.000Z">
 <meta property="article:author" content="希梦Cidream">
+<meta property="article:tag" content="算法基础课">
+<meta property="article:tag" content="代码模板">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="b:\Cidream-blog\source_posts\img\image-20240617154227963.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>希梦Cidream</title>
+  <title>算法代码模板一[0/16] | 希梦Cidream</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -270,7 +274,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text=""></span>
+            <span id="subtitle" data-typed-text="算法代码模板一[0/16]"></span>
           
         </div>
 
@@ -286,7 +290,7 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-06-16 20:41" pubdate>
+        <time datetime="2024-06-16 09:00" pubdate>
           2024/06/16
         </time>
       </span>
@@ -298,7 +302,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          4k 字
+          242 字
         
       </span>
     
@@ -309,7 +313,7 @@
         
         
         
-          34 分钟
+          3 分钟
         
       </span>
     
@@ -354,82 +358,20 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header"></h1>
+            <h1 id="seo-header">算法代码模板一[0/16]</h1>
             
             
               <div class="markdown-body">
                 
-                <p>算法基础课相关代码模板<br>活动链接 —— 算法基础课<br>快速排序算法模板 —— 模板题 AcWing 785. 快速排序<br>void quick_sort(int q[], int l, int r)<br>{<br>    if (l &gt;&#x3D; r) return;</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-type">int</span> i = l - <span class="hljs-number">1</span>, j = r + <span class="hljs-number">1</span>, x = q[l + r &gt;&gt; <span class="hljs-number">1</span>];<br><span class="hljs-keyword">while</span> (i &lt; j)<br>&#123;<br>    <span class="hljs-keyword">do</span> i ++ ; <span class="hljs-keyword">while</span> (q[i] &lt; x);<br>    <span class="hljs-keyword">do</span> j -- ; <span class="hljs-keyword">while</span> (q[j] &gt; x);<br>    <span class="hljs-keyword">if</span> (i &lt; j) <span class="hljs-built_in">swap</span>(q[i], q[j]);<br>&#125;<br><span class="hljs-built_in">quick_sort</span>(q, l, j), <span class="hljs-built_in">quick_sort</span>(q, j + <span class="hljs-number">1</span>, r);<br></code></pre></td></tr></table></figure>
-<p>}<br>归并排序算法模板 —— 模板题 AcWing 787. 归并排序<br>void merge_sort(int q[], int l, int r)<br>{<br>    if (l &gt;&#x3D; r) return;</p>
-<pre><code class="hljs">int mid = l + r &gt;&gt; 1;
-merge_sort(q, l, mid);
-merge_sort(q, mid + 1, r);
-
-int k = 0, i = l, j = mid + 1;
-while (i &lt;= mid &amp;&amp; j &lt;= r)
-    if (q[i] &lt;= q[j]) tmp[k ++ ] = q[i ++ ];
-    else tmp[k ++ ] = q[j ++ ];
-
-while (i &lt;= mid) tmp[k ++ ] = q[i ++ ];
-while (j &lt;= r) tmp[k ++ ] = q[j ++ ];
-
-for (i = l, j = 0; i &lt;= r; i ++, j ++ ) q[i] = tmp[j];
-</code></pre>
-<p>}<br>整数二分算法模板 —— 模板题 AcWing 789. 数的范围<br>bool check(int x) {&#x2F;* … *&#x2F;} &#x2F;&#x2F; 检查x是否满足某种性质</p>
-<p>&#x2F;&#x2F; 区间[l, r]被划分成[l, mid]和[mid + 1, r]时使用：<br>int bsearch_1(int l, int r)<br>{<br>    while (l &lt; r)<br>    {<br>        int mid &#x3D; l + r &gt;&gt; 1;<br>        if (check(mid)) r &#x3D; mid;    &#x2F;&#x2F; check()判断mid是否满足性质<br>        else l &#x3D; mid + 1;<br>    }<br>    return l;<br>}<br>&#x2F;&#x2F; 区间[l, r]被划分成[l, mid - 1]和[mid, r]时使用：<br>int bsearch_2(int l, int r)<br>{<br>    while (l &lt; r)<br>    {<br>        int mid &#x3D; l + r + 1 &gt;&gt; 1;<br>        if (check(mid)) l &#x3D; mid;<br>        else r &#x3D; mid - 1;<br>    }<br>    return l;<br>}<br>浮点数二分算法模板 —— 模板题 AcWing 790. 数的三次方根<br>bool check(double x) {&#x2F;* … *&#x2F;} &#x2F;&#x2F; 检查x是否满足某种性质</p>
-<p>double bsearch_3(double l, double r)<br>{<br>    const double eps &#x3D; 1e-6;   &#x2F;&#x2F; eps 表示精度，取决于题目对精度的要求<br>    while (r - l &gt; eps)<br>    {<br>        double mid &#x3D; (l + r) &#x2F; 2;<br>        if (check(mid)) r &#x3D; mid;<br>        else l &#x3D; mid;<br>    }<br>    return l;<br>}<br>高精度加法 —— 模板题 AcWing 791. 高精度加法<br>&#x2F;&#x2F; C &#x3D; A + B, A &gt;&#x3D; 0, B &gt;&#x3D; 0<br>vector<int> add(vector<int> &amp;A, vector<int> &amp;B)<br>{<br>    if (A.size() &lt; B.size()) return add(B, A);</p>
-<pre><code class="hljs">vector&lt;int&gt; C;
-int t = 0;
-for (int i = 0; i &lt; A.size(); i ++ )
-&#123;
-    t += A[i];
-    if (i &lt; B.size()) t += B[i];
-    C.push_back(t % 10);
-    t /= 10;
-&#125;
-
-if (t) C.push_back(t);
-return C;
-</code></pre>
-<p>}<br>高精度减法 —— 模板题 AcWing 792. 高精度减法<br>&#x2F;&#x2F; C &#x3D; A - B, 满足A &gt;&#x3D; B, A &gt;&#x3D; 0, B &gt;&#x3D; 0<br>vector<int> sub(vector<int> &amp;A, vector<int> &amp;B)<br>{<br>    vector<int> C;<br>    for (int i &#x3D; 0, t &#x3D; 0; i &lt; A.size(); i ++ )<br>    {<br>        t &#x3D; A[i] - t;<br>        if (i &lt; B.size()) t -&#x3D; B[i];<br>        C.push_back((t + 10) % 10);<br>        if (t &lt; 0) t &#x3D; 1;<br>        else t &#x3D; 0;<br>    }</p>
-<pre><code class="hljs">while (C.size() &gt; 1 &amp;&amp; C.back() == 0) C.pop_back();
-return C;
-</code></pre>
-<p>}<br>高精度乘低精度 —— 模板题 AcWing 793. 高精度乘法<br>&#x2F;&#x2F; C &#x3D; A * b, A &gt;&#x3D; 0, b &gt;&#x3D; 0<br>vector<int> mul(vector<int> &amp;A, int b)<br>{<br>    vector<int> C;</p>
-<pre><code class="hljs">int t = 0;
-for (int i = 0; i &lt; A.size() || t; i ++ )
-&#123;
-    if (i &lt; A.size()) t += A[i] * b;
-    C.push_back(t % 10);
-    t /= 10;
-&#125;
-
-while (C.size() &gt; 1 &amp;&amp; C.back() == 0) C.pop_back();
-
-return C;
-</code></pre>
-<p>}<br>高精度除以低精度 —— 模板题 AcWing 794. 高精度除法<br>&#x2F;&#x2F; A &#x2F; b &#x3D; C … r, A &gt;&#x3D; 0, b &gt; 0<br>vector<int> div(vector<int> &amp;A, int b, int &amp;r)<br>{<br>    vector<int> C;<br>    r &#x3D; 0;<br>    for (int i &#x3D; A.size() - 1; i &gt;&#x3D; 0; i – )<br>    {<br>        r &#x3D; r * 10 + A[i];<br>        C.push_back(r &#x2F; b);<br>        r %&#x3D; b;<br>    }<br>    reverse(C.begin(), C.end());<br>    while (C.size() &gt; 1 &amp;&amp; C.back() &#x3D;&#x3D; 0) C.pop_back();<br>    return C;<br>}<br>一维前缀和 —— 模板题 AcWing 795. 前缀和<br>S[i] &#x3D; a[1] + a[2] + … a[i]<br>a[l] + … + a[r] &#x3D; S[r] - S[l - 1]<br>二维前缀和 —— 模板题 AcWing 796. 子矩阵的和<br>S[i, j] &#x3D; 第i行j列格子左上部分所有元素的和<br>以(x1, y1)为左上角，(x2, y2)为右下角的子矩阵的和为：<br>S[x2, y2] - S[x1 - 1, y2] - S[x2, y1 - 1] + S[x1 - 1, y1 - 1]<br>一维差分 —— 模板题 AcWing 797. 差分<br>给区间[l, r]中的每个数加上c：B[l] +&#x3D; c, B[r + 1] -&#x3D; c<br>二维差分 —— 模板题 AcWing 798. 差分矩阵<br>给以(x1, y1)为左上角，(x2, y2)为右下角的子矩阵中的所有元素加上c：<br>S[x1, y1] +&#x3D; c, S[x2 + 1, y1] -&#x3D; c, S[x1, y2 + 1] -&#x3D; c, S[x2 + 1, y2 + 1] +&#x3D; c<br>位运算 —— 模板题 AcWing 801. 二进制中1的个数<br>求n的第k位数字: n &gt;&gt; k &amp; 1<br>返回n的最后一位1：lowbit(n) &#x3D; n &amp; -n<br>双指针算法 —— 模板题 AcWIng 799. 最长连续不重复子序列, AcWing 800. 数组元素的目标和<br>for (int i &#x3D; 0, j &#x3D; 0; i &lt; n; i ++ )<br>{<br>    while (j &lt; i &amp;&amp; check(i, j)) j ++ ;</p>
-<pre><code class="hljs">// 具体问题的逻辑
-</code></pre>
-<p>}<br>常见问题分类：<br>    (1) 对于一个序列，用两个指针维护一段区间<br>    (2) 对于两个序列，维护某种次序，比如归并排序中合并两个有序序列的操作<br>离散化 —— 模板题 AcWing 802. 区间和<br>vector<int> alls; &#x2F;&#x2F; 存储所有待离散化的值<br>sort(alls.begin(), alls.end()); &#x2F;&#x2F; 将所有值排序<br>alls.erase(unique(alls.begin(), alls.end()), alls.end());   &#x2F;&#x2F; 去掉重复元素</p>
-<p>&#x2F;&#x2F; 二分求出x对应的离散化的值<br>int find(int x) &#x2F;&#x2F; 找到第一个大于等于x的位置<br>{<br>    int l &#x3D; 0, r &#x3D; alls.size() - 1;<br>    while (l &lt; r)<br>    {<br>        int mid &#x3D; l + r &gt;&gt; 1;<br>        if (alls[mid] &gt;&#x3D; x) r &#x3D; mid;<br>        else l &#x3D; mid + 1;<br>    }<br>    return r + 1; &#x2F;&#x2F; 映射到1, 2, …n<br>}<br>区间合并 —— 模板题 AcWing 803. 区间合并<br>&#x2F;&#x2F; 将所有存在交集的区间合并<br>void merge(vector<PII> &amp;segs)<br>{<br>    vector<PII> res;</p>
-<pre><code class="hljs">sort(segs.begin(), segs.end());
-
-int st = -2e9, ed = -2e9;
-for (auto seg : segs)
-    if (ed &lt; seg.first)
-    &#123;
-        if (st != -2e9) res.push_back(&#123;st, ed&#125;);
-        st = seg.first, ed = seg.second;
-    &#125;
-    else ed = max(ed, seg.second);
-
-if (st != -2e9) res.push_back(&#123;st, ed&#125;);
-
-segs = res;
-</code></pre>
-
+                <blockquote>
+<p>以下基础算法我会一一简略阐述</p>
+<p>“时间永远都不够”——</p>
+</blockquote>
+<h1 id="01-快速排序算法"><a href="#01-快速排序算法" class="headerlink" title="01 快速排序算法"></a>01 快速排序算法</h1><blockquote>
+<p>利用<strong>分治</strong>的原理，将待排序数列用<strong>二分</strong>的思想分成若干个小区间，对于每一个区间，选取一个<strong>基准元素</strong>（basic），再利用<strong>双指针</strong>的算法扫描区间，交换元素使大于基准元素在基准元素之后，使小于基准元素在基准元素之前。</p>
+<p><img src="B:\Cidream-blog\source_posts\img\image-20240617154227963.png" srcset="/img/loading.gif" lazyload alt="image-20240617154227963"></p>
+</blockquote>
+<h1 id="02-归并排序算法"><a href="#02-归并排序算法" class="headerlink" title="02 归并排序算法"></a>02 归并排序算法</h1><h1 id="03-整数二分算法"><a href="#03-整数二分算法" class="headerlink" title="03 整数二分算法"></a>03 整数二分算法</h1><h1 id="04-浮点数二分算法"><a href="#04-浮点数二分算法" class="headerlink" title="04 浮点数二分算法"></a>04 浮点数二分算法</h1><h1 id="05-高精度加法"><a href="#05-高精度加法" class="headerlink" title="05 高精度加法"></a>05 高精度加法</h1><h1 id="06-高精度减法"><a href="#06-高精度减法" class="headerlink" title="06 高精度减法"></a>06 高精度减法</h1><h1 id="07-高精度乘以低精度"><a href="#07-高精度乘以低精度" class="headerlink" title="07 高精度乘以低精度"></a>07 高精度乘以低精度</h1><h1 id="08-高精度除以低精度"><a href="#08-高精度除以低精度" class="headerlink" title="08 高精度除以低精度"></a>08 高精度除以低精度</h1><h1 id="09-一维前缀和"><a href="#09-一维前缀和" class="headerlink" title="09 一维前缀和"></a>09 一维前缀和</h1><h1 id="10-二维前缀和"><a href="#10-二维前缀和" class="headerlink" title="10 二维前缀和"></a>10 二维前缀和</h1><h1 id="11-一维差分"><a href="#11-一维差分" class="headerlink" title="11 一维差分"></a>11 一维差分</h1><h1 id="12-二维差分"><a href="#12-二维差分" class="headerlink" title="12 二维差分"></a>12 二维差分</h1><h1 id="13-位运算"><a href="#13-位运算" class="headerlink" title="13 位运算"></a>13 位运算</h1><h1 id="14-双指针算法"><a href="#14-双指针算法" class="headerlink" title="14 双指针算法"></a>14 双指针算法</h1><h1 id="15-离散化"><a href="#15-离散化" class="headerlink" title="15 离散化"></a>15 离散化</h1><h1 id="16-区间合并"><a href="#16-区间合并" class="headerlink" title="16 区间合并"></a>16 区间合并</h1>
                 
               </div>
             
@@ -437,6 +379,43 @@ segs = res;
             <div>
               <div class="post-metas my-3">
   
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E8%AF%BE/" class="category-chain-item">算法基础课</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E8%AF%BE/%E4%BB%A3%E7%A0%81%E6%A8%A1%E6%9D%BF/" class="category-chain-item">代码模板</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E8%AF%BE/" class="print-no-link">#算法基础课</a>
+      
+        <a href="/tags/%E4%BB%A3%E7%A0%81%E6%A8%A1%E6%9D%BF/" class="print-no-link">#代码模板</a>
+      
+    </div>
   
 </div>
 
@@ -447,12 +426,6 @@ segs = res;
                 <div class="post-prevnext my-3">
                   <article class="post-prev col-6">
                     
-                    
-                      <a href="/2024/06/16/%E6%96%87%E7%AB%A0%E6%A8%A1%E6%9D%BF/" title="">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile"></span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
                     
                   </article>
                   <article class="post-next col-6">
