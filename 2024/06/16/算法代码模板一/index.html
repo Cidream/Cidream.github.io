@@ -16,27 +16,30 @@
   <meta name="author" content="希梦Cidream">
   <meta name="keywords" content="">
   
-    <meta name="description" content="以下基础算法我会一一简略阐述 “时间永远都不够”  01 快速排序算法 利用分治的原理，将待排序数列用二分的思想分成若干个小区间，对于每一个区间，选取一个基准元素（basic），再利用双指针的算法扫描区间，交换元素使大于基准元素在基准元素之后，使小于基准元素在基准元素之前。   02 归并排序算法03 整数二分算法04 浮点数二分算法05 高精度加法06 高精度减法07 高精度乘以低精度08 高">
+    <meta name="description" content="以下基础算法我会一一简略阐述 “时间永远都不够”  01 快速排序算法 利用分治的原理，将待排序数列用二分的思想分成若干个小区间，对于每一个区间，选取一个基准元素（$basic$），再利用双指针的算法扫描区间，交换元素使大于基准元素在基准元素之后，使小于基准元素的元素在基准元素的元素之前。   算法核心具体来说，该算法分为三步： 一.选取区间$[l,r]$,选取基本元素，分成两个区间$A$与$B">
 <meta property="og:type" content="article">
-<meta property="og:title" content="算法代码模板一[0&#x2F;16]">
+<meta property="og:title" content="算法代码模板一[持续更新1&#x2F;16]">
 <meta property="og:url" content="https://cidream.github.io/2024/06/16/%E7%AE%97%E6%B3%95%E4%BB%A3%E7%A0%81%E6%A8%A1%E6%9D%BF%E4%B8%80/index.html">
 <meta property="og:site_name" content="希梦Cidream">
-<meta property="og:description" content="以下基础算法我会一一简略阐述 “时间永远都不够”  01 快速排序算法 利用分治的原理，将待排序数列用二分的思想分成若干个小区间，对于每一个区间，选取一个基准元素（basic），再利用双指针的算法扫描区间，交换元素使大于基准元素在基准元素之后，使小于基准元素在基准元素之前。   02 归并排序算法03 整数二分算法04 浮点数二分算法05 高精度加法06 高精度减法07 高精度乘以低精度08 高">
+<meta property="og:description" content="以下基础算法我会一一简略阐述 “时间永远都不够”  01 快速排序算法 利用分治的原理，将待排序数列用二分的思想分成若干个小区间，对于每一个区间，选取一个基准元素（$basic$），再利用双指针的算法扫描区间，交换元素使大于基准元素在基准元素之后，使小于基准元素的元素在基准元素的元素之前。   算法核心具体来说，该算法分为三步： 一.选取区间$[l,r]$,选取基本元素，分成两个区间$A$与$B">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="b:\Cidream-blog\source\img\image-20240617154649370.png">
+<meta property="og:image" content="https://cidream.github.io/img/image-20240617185959492.png">
+<meta property="og:image" content="https://cidream.github.io/img/image-20240617185809960.png">
+<meta property="og:image" content="https://cidream.github.io/img/image-20240617185634619.png">
+<meta property="og:image" content="https://cidream.github.io/img/image-20240617191750790.png">
 <meta property="article:published_time" content="2024-06-16T01:00:00.000Z">
-<meta property="article:modified_time" content="2024-06-17T07:52:12.000Z">
+<meta property="article:modified_time" content="2024-06-18T08:07:14.000Z">
 <meta property="article:author" content="希梦Cidream">
 <meta property="article:tag" content="算法基础课">
 <meta property="article:tag" content="代码模板">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="b:\Cidream-blog\source\img\image-20240617154649370.png">
+<meta name="twitter:image" content="https://cidream.github.io/img/image-20240617185959492.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>算法代码模板一[0/16] | 希梦Cidream</title>
+  <title>算法代码模板一[持续更新1/16] | 希梦Cidream</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -238,7 +241,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/" target="_self">
+              <a class="nav-link" href="/more/" target="_self">
                 <i class="iconfont icon-exp-fill"></i>
                 <span>敬请期待</span>
               </a>
@@ -274,7 +277,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="算法代码模板一[0/16]"></span>
+            <span id="subtitle" data-typed-text="算法代码模板一[持续更新1/16]"></span>
           
         </div>
 
@@ -302,7 +305,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          240 字
+          1k 字
         
       </span>
     
@@ -313,7 +316,7 @@
         
         
         
-          3 分钟
+          9 分钟
         
       </span>
     
@@ -358,7 +361,7 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">算法代码模板一[0/16]</h1>
+            <h1 id="seo-header">算法代码模板一[持续更新1/16]</h1>
             
             
               <div class="markdown-body">
@@ -368,10 +371,29 @@
 <p>“时间永远都不够”</p>
 </blockquote>
 <h1 id="01-快速排序算法"><a href="#01-快速排序算法" class="headerlink" title="01 快速排序算法"></a>01 快速排序算法</h1><blockquote>
-<p>利用<strong>分治</strong>的原理，将待排序数列用<strong>二分</strong>的思想分成若干个小区间，对于每一个区间，选取一个<strong>基准元素</strong>（basic），再利用<strong>双指针</strong>的算法扫描区间，交换元素使大于基准元素在基准元素之后，使小于基准元素在基准元素之前。</p>
-<p><img src="B:\Cidream-blog\source\img\image-20240617154649370.png" srcset="/img/loading.gif" lazyload alt="image-20240617154649370"></p>
+<p>利用<strong>分治</strong>的原理，将待排序数列用<strong>二分</strong>的思想分成若干个小区间，对于每一个区间，选取一个<strong>基准元素</strong>（$basic$），再利用<strong>双指针</strong>的算法扫描区间，交换元素使<strong>大于</strong>基准元素在基准元素之后，使<strong>小于</strong>基准元素的元素在基准元素的元素之前。</p>
+<p><img src="/../img/image-20240617185959492.png" srcset="/img/loading.gif" lazyload alt="image-20240617185959492"></p>
 </blockquote>
-<h1 id="02-归并排序算法"><a href="#02-归并排序算法" class="headerlink" title="02 归并排序算法"></a>02 归并排序算法</h1><h1 id="03-整数二分算法"><a href="#03-整数二分算法" class="headerlink" title="03 整数二分算法"></a>03 整数二分算法</h1><h1 id="04-浮点数二分算法"><a href="#04-浮点数二分算法" class="headerlink" title="04 浮点数二分算法"></a>04 浮点数二分算法</h1><h1 id="05-高精度加法"><a href="#05-高精度加法" class="headerlink" title="05 高精度加法"></a>05 高精度加法</h1><h1 id="06-高精度减法"><a href="#06-高精度减法" class="headerlink" title="06 高精度减法"></a>06 高精度减法</h1><h1 id="07-高精度乘以低精度"><a href="#07-高精度乘以低精度" class="headerlink" title="07 高精度乘以低精度"></a>07 高精度乘以低精度</h1><h1 id="08-高精度除以低精度"><a href="#08-高精度除以低精度" class="headerlink" title="08 高精度除以低精度"></a>08 高精度除以低精度</h1><h1 id="09-一维前缀和"><a href="#09-一维前缀和" class="headerlink" title="09 一维前缀和"></a>09 一维前缀和</h1><h1 id="10-二维前缀和"><a href="#10-二维前缀和" class="headerlink" title="10 二维前缀和"></a>10 二维前缀和</h1><h1 id="11-一维差分"><a href="#11-一维差分" class="headerlink" title="11 一维差分"></a>11 一维差分</h1><h1 id="12-二维差分"><a href="#12-二维差分" class="headerlink" title="12 二维差分"></a>12 二维差分</h1><h1 id="13-位运算"><a href="#13-位运算" class="headerlink" title="13 位运算"></a>13 位运算</h1><h1 id="14-双指针算法"><a href="#14-双指针算法" class="headerlink" title="14 双指针算法"></a>14 双指针算法</h1><h1 id="15-离散化"><a href="#15-离散化" class="headerlink" title="15 离散化"></a>15 离散化</h1><h1 id="16-区间合并"><a href="#16-区间合并" class="headerlink" title="16 区间合并"></a>16 区间合并</h1>
+<h2 id="算法核心"><a href="#算法核心" class="headerlink" title="算法核心"></a>算法核心</h2><p><em>具体来说，该算法分为<strong>三</strong>步：</em></p>
+<h3 id="一-选取区间-l-r-选取基本元素，分成两个区间-A-与-B"><a href="#一-选取区间-l-r-选取基本元素，分成两个区间-A-与-B" class="headerlink" title="一.选取区间$[l,r]$,选取基本元素，分成两个区间$A$与$B$"></a>一.选取区间$[l,r]$,选取基本元素，分成两个区间$A$与$B$</h3><p><img src="/../img/image-20240617185809960.png" srcset="/img/loading.gif" lazyload alt="区间图"></p>
+<h3 id="二-调整范围，通过交换基本元素之前和之后的元素"><a href="#二-调整范围，通过交换基本元素之前和之后的元素" class="headerlink" title="二.调整范围，通过交换基本元素之前和之后的元素"></a>二.调整范围，通过交换基本元素之前和之后的元素</h3><blockquote>
+<p>基本元素,通常为中间元素,有时也会用随机元素,但一般不用首尾元素防止结构退化使时间复杂度退化为$O(n)$</p>
+</blockquote>
+<p><img src="/../img/image-20240617185634619.png" srcset="/img/loading.gif" lazyload alt="调整范围"></p>
+<h3 id="三-通过递归处理子区间-A-与-B"><a href="#三-通过递归处理子区间-A-与-B" class="headerlink" title="三.通过递归处理子区间$A$与$B$"></a>三.通过递归处理子区间$A$与$B$</h3><p><img src="/../img/image-20240617191750790.png" srcset="/img/loading.gif" lazyload alt="递归处理"></p>
+<h2 id="算法的性能"><a href="#算法的性能" class="headerlink" title="算法的性能"></a>算法的性能</h2><blockquote>
+<ol>
+<li>时间复杂度：$O(NlogN)$</li>
+<li>空间复杂度：$O(logN)$</li>
+<li>稳定性：$不稳定$</li>
+</ol>
+</blockquote>
+<h2 id="代码模板"><a href="#代码模板" class="headerlink" title="代码模板"></a>代码模板</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">quick_sort</span><span class="hljs-params">(<span class="hljs-type">int</span> q[], <span class="hljs-type">int</span> l, <span class="hljs-type">int</span> r)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">if</span> (l &gt;= r) <span class="hljs-keyword">return</span>;<br><br>    <span class="hljs-type">int</span> i = l - <span class="hljs-number">1</span>, j = r + <span class="hljs-number">1</span>, mid = q[l + r &gt;&gt; <span class="hljs-number">1</span>];<br>    <span class="hljs-keyword">while</span> (i &lt; j)<br>    &#123;<br>        <span class="hljs-keyword">do</span> i ++ ; <span class="hljs-keyword">while</span> (q[i] &lt; mid);<br>        <span class="hljs-keyword">do</span> j -- ; <span class="hljs-keyword">while</span> (q[j] &gt; mid);<br>        <span class="hljs-keyword">if</span> (i &lt; j) <span class="hljs-built_in">swap</span>(q[i], q[j]);<br>    &#125;<br>    <span class="hljs-built_in">quick_sort</span>(q, l, j), <span class="hljs-built_in">quick_sort</span>(q, j + <span class="hljs-number">1</span>, r);<br>  <span class="hljs-comment">//quick_sort(q, l, i - 1), quick_sort(q, i, r);</span><br>  <span class="hljs-comment">//其实上面这一行也可以不过第5行要改为mid = a[l + r &gt;&gt; 1]</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>其实还有一种更<strong>优雅</strong>的写法</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">quick_sort</span><span class="hljs-params">(<span class="hljs-type">int</span> a[], <span class="hljs-type">int</span> l, <span class="hljs-type">int</span> r)</span> </span>&#123;<br>    <span class="hljs-keyword">if</span> (l &gt;= r) <span class="hljs-keyword">return</span> ;<br><br>    <span class="hljs-type">int</span> i = l, j = r，x = a[l + r &gt;&gt; <span class="hljs-number">1</span>];<br>    <span class="hljs-keyword">while</span> (i &lt;= j) &#123;<br>        <span class="hljs-keyword">while</span>(a[i] &lt; x) i++;<br>        <span class="hljs-keyword">while</span>(a[j] &gt; x) j--;<br>        <span class="hljs-keyword">if</span> (i &lt;= j) <span class="hljs-built_in">swap</span>(a[i++], a[j--]);<br>    &#125;<br>    <span class="hljs-built_in">quick_sort</span>(a, l, j),<span class="hljs-built_in">quick_sort</span>(a, i, r);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="总结，写快排时一定要注重细节！"><a href="#总结，写快排时一定要注重细节！" class="headerlink" title="总结，写快排时一定要注重细节！"></a>总结，写快排时一定要注重细节！</h2><h1 id="02-归并排序算法"><a href="#02-归并排序算法" class="headerlink" title="02 归并排序算法"></a>02 归并排序算法</h1><h1 id="03-整数二分算法"><a href="#03-整数二分算法" class="headerlink" title="03 整数二分算法"></a>03 整数二分算法</h1><h1 id="04-浮点数二分算法"><a href="#04-浮点数二分算法" class="headerlink" title="04 浮点数二分算法"></a>04 浮点数二分算法</h1><h1 id="05-高精度加法"><a href="#05-高精度加法" class="headerlink" title="05 高精度加法"></a>05 高精度加法</h1><h1 id="06-高精度减法"><a href="#06-高精度减法" class="headerlink" title="06 高精度减法"></a>06 高精度减法</h1><h1 id="07-高精度乘以低精度"><a href="#07-高精度乘以低精度" class="headerlink" title="07 高精度乘以低精度"></a>07 高精度乘以低精度</h1><h1 id="08-高精度除以低精度"><a href="#08-高精度除以低精度" class="headerlink" title="08 高精度除以低精度"></a>08 高精度除以低精度</h1><h1 id="09-一维前缀和"><a href="#09-一维前缀和" class="headerlink" title="09 一维前缀和"></a>09 一维前缀和</h1><h1 id="10-二维前缀和"><a href="#10-二维前缀和" class="headerlink" title="10 二维前缀和"></a>10 二维前缀和</h1><h1 id="11-一维差分"><a href="#11-一维差分" class="headerlink" title="11 一维差分"></a>11 一维差分</h1><h1 id="12-二维差分"><a href="#12-二维差分" class="headerlink" title="12 二维差分"></a>12 二维差分</h1><h1 id="13-位运算"><a href="#13-位运算" class="headerlink" title="13 位运算"></a>13 位运算</h1><h1 id="14-双指针算法"><a href="#14-双指针算法" class="headerlink" title="14 双指针算法"></a>14 双指针算法</h1><h1 id="15-离散化"><a href="#15-离散化" class="headerlink" title="15 离散化"></a>15 离散化</h1><h1 id="16-区间合并"><a href="#16-区间合并" class="headerlink" title="16 区间合并"></a>16 区间合并</h1>
                 
               </div>
             
