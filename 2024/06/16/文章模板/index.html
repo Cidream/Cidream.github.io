@@ -16,12 +16,12 @@
   <meta name="author" content="希梦Cidream">
   <meta name="keywords" content="">
   
-    <meta name="description" content="-1 站点地图🗺 0 前言 1 引入 2 结构思想 3 定义结构 4 实现结构 5 优化结构 6 时间复杂度 7 扩展结构 8 代码模板 last 总结">
+    <meta name="description" content="-1 站点地图🗺0 前言1 引入2 结构思想3 定义结构4 实现结构5 优化结构6 时间复杂度7 扩展结构8 代码模板last 总结">
 <meta property="og:type" content="article">
 <meta property="og:title" content="模板">
 <meta property="og:url" content="https://cidream.github.io/2024/06/16/%E6%96%87%E7%AB%A0%E6%A8%A1%E6%9D%BF/index.html">
 <meta property="og:site_name" content="希梦Cidream">
-<meta property="og:description" content="-1 站点地图🗺 0 前言 1 引入 2 结构思想 3 定义结构 4 实现结构 5 优化结构 6 时间复杂度 7 扩展结构 8 代码模板 last 总结">
+<meta property="og:description" content="-1 站点地图🗺0 前言1 引入2 结构思想3 定义结构4 实现结构5 优化结构6 时间复杂度7 扩展结构8 代码模板last 总结">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-06-16T01:00:00.000Z">
 <meta property="article:modified_time" content="2024-06-16T13:36:18.000Z">
@@ -43,8 +43,6 @@
   <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
-
-  <link  rel="stylesheet" href="https://lib.baomitu.com/KaTeX/0.16.2/katex.min.css" />
 
 
 
@@ -361,18 +359,7 @@
             
               <div class="markdown-body">
                 
-                <h1>-1 站点地图🗺</h1>
-<h2 id="0-前言">0 前言</h2>
-<h2 id="1-引入">1 引入</h2>
-<h2 id="2-结构思想">2 结构思想</h2>
-<h2 id="3-定义结构">3 定义结构</h2>
-<h2 id="4-实现结构">4 实现结构</h2>
-<h2 id="5-优化结构">5 优化结构</h2>
-<h2 id="6-时间复杂度">6 时间复杂度</h2>
-<h2 id="7-扩展结构">7 扩展结构</h2>
-<h2 id="8-代码模板">8 代码模板</h2>
-<h2 id="last-总结">last 总结</h2>
-
+                <h1 id="1-站点地图🗺"><a href="#1-站点地图🗺" class="headerlink" title="-1 站点地图🗺"></a>-1 站点地图🗺</h1><h2 id="0-前言"><a href="#0-前言" class="headerlink" title="0 前言"></a>0 前言</h2><h2 id="1-引入"><a href="#1-引入" class="headerlink" title="1 引入"></a>1 引入</h2><h2 id="2-结构思想"><a href="#2-结构思想" class="headerlink" title="2 结构思想"></a>2 结构思想</h2><h2 id="3-定义结构"><a href="#3-定义结构" class="headerlink" title="3 定义结构"></a>3 定义结构</h2><h2 id="4-实现结构"><a href="#4-实现结构" class="headerlink" title="4 实现结构"></a>4 实现结构</h2><h2 id="5-优化结构"><a href="#5-优化结构" class="headerlink" title="5 优化结构"></a>5 优化结构</h2><h2 id="6-时间复杂度"><a href="#6-时间复杂度" class="headerlink" title="6 时间复杂度"></a>6 时间复杂度</h2><h2 id="7-扩展结构"><a href="#7-扩展结构" class="headerlink" title="7 扩展结构"></a>7 扩展结构</h2><h2 id="8-代码模板"><a href="#8-代码模板" class="headerlink" title="8 代码模板"></a>8 代码模板</h2><h2 id="last-总结"><a href="#last-总结" class="headerlink" title="last 总结"></a>last 总结</h2>
                 
               </div>
             
@@ -440,6 +427,7 @@
 
   
   
+
 
 
 
@@ -661,6 +649,49 @@
 
 
   <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
 
   <script  src="/js/local-search.js" ></script>
 

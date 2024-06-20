@@ -16,12 +16,12 @@
   <meta name="author" content="希梦Cidream">
   <meta name="keywords" content="">
   
-    <meta name="description" content="🏷️作者标签 &lt;编程爱好者&gt; &amp; &lt;科幻迷&gt; 🎯目标： 制作一个高质量的算法笔记博客， 我愿用一生实现那个藏在我心中的秘密， 🎉当网格被岁月填满，我已达梦想的彼岸🎉">
+    <meta name="description" content="🏷️作者标签&lt;编程爱好者&gt; &amp; &lt;科幻迷&gt;🎯目标：制作一个高质量的算法笔记博客，我愿用一生实现那个藏在我心中的秘密，🎉当网格被岁月填满，我已达梦想的彼岸🎉">
 <meta property="og:type" content="website">
 <meta property="og:title" content="关于">
 <meta property="og:url" content="https://cidream.github.io/about/index.html">
 <meta property="og:site_name" content="希梦Cidream">
-<meta property="og:description" content="🏷️作者标签 &lt;编程爱好者&gt; &amp; &lt;科幻迷&gt; 🎯目标： 制作一个高质量的算法笔记博客， 我愿用一生实现那个藏在我心中的秘密， 🎉当网格被岁月填满，我已达梦想的彼岸🎉">
+<meta property="og:description" content="🏷️作者标签&lt;编程爱好者&gt; &amp; &lt;科幻迷&gt;🎯目标：制作一个高质量的算法笔记博客，我愿用一生实现那个藏在我心中的秘密，🎉当网格被岁月填满，我已达梦想的彼岸🎉">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2009-04-22T19:24:48.000Z">
 <meta property="article:modified_time" content="2024-06-20T08:26:30.000Z">
@@ -43,8 +43,6 @@
   <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
-
-  <link  rel="stylesheet" href="https://lib.baomitu.com/KaTeX/0.16.2/katex.min.css" />
 
 
 
@@ -315,13 +313,7 @@
 
 <article class="about-content page-content mt-5">
   <div class="markdown-body">
-    <h1>🏷️作者标签</h1>
-<h3 id="编程爱好者-科幻迷">&lt;编程爱好者&gt; &amp; &lt;科幻迷&gt;</h3>
-<h1>🎯目标：</h1>
-<h3 id="制作一个高质量的算法笔记博客，">制作一个高质量的算法笔记博客，</h3>
-<h3 id="我愿用一生实现那个藏在我心中的秘密，">我愿用一生实现那个藏在我心中的秘密，</h3>
-<h1>🎉当网格被岁月填满，我已达梦想的彼岸🎉</h1>
-
+    <h1 id="🏷️作者标签"><a href="#🏷️作者标签" class="headerlink" title="🏷️作者标签"></a>🏷️作者标签</h1><h3 id><a href="#" class="headerlink" title="&lt;编程爱好者&gt; &amp; &lt;科幻迷&gt;"></a>&lt;编程爱好者&gt; &amp; &lt;科幻迷&gt;</h3><h1 id="🎯目标："><a href="#🎯目标：" class="headerlink" title="🎯目标："></a>🎯目标：</h1><h3 id="制作一个高质量的算法笔记博客，"><a href="#制作一个高质量的算法笔记博客，" class="headerlink" title="制作一个高质量的算法笔记博客，"></a>制作一个高质量的算法笔记博客，</h3><h3 id="我愿用一生实现那个藏在我心中的秘密，"><a href="#我愿用一生实现那个藏在我心中的秘密，" class="headerlink" title="我愿用一生实现那个藏在我心中的秘密，"></a>我愿用一生实现那个藏在我心中的秘密，</h3><h1 id="🎉当网格被岁月填满，我已达梦想的彼岸🎉"><a href="#🎉当网格被岁月填满，我已达梦想的彼岸🎉" class="headerlink" title="🎉当网格被岁月填满，我已达梦想的彼岸🎉"></a>🎉当网格被岁月填满，我已达梦想的彼岸🎉</h1>
   </div>
 
   
@@ -352,6 +344,7 @@
 
   
   
+
 
 
 
@@ -536,6 +529,49 @@
 
 
   <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
 
   <script  src="/js/local-search.js" ></script>
 
