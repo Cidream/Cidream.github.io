@@ -16,30 +16,34 @@
   <meta name="author" content="希梦Cidream">
   <meta name="keywords" content="">
   
-    <meta name="description" content="以下基础算法我会一一简略阐述 “时间永远都不够”  01 快速排序算法 利用分治的原理，将待排序数列用二分的思想分成若干个小区间，对于每一个区间，选取一个基准元素（$basic$），再利用双指针的算法扫描区间，交换元素使大于基准元素在基准元素之后，使小于基准元素的元素在基准元素的元素之前。   算法核心具体来说，该算法分为三步： 一.选取区间$[l,r]$,选取基本元素，分成两个区间$A$与$B">
+    <meta name="description" content="引入 利用分治的原理，将待排序数分成若干个小区间，对于每一个区间，选取一个基准元素（$basic$），再利用双指针的算法扫描区间，交换元素使大于基准元素在基准元素之后，使小于基准元素的元素在基准元素的元素之前。  分治简述是一种将大区间分成若干个小区间,再合并各个小区间,以解决原问题的思想,通常用于原问题较为复杂的情况下,简化问题的思想——字面意思为分而治之 双指针简述后面我会单独分一章介绍双指针">
 <meta property="og:type" content="article">
-<meta property="og:title" content="算法代码模板一[持续更新1&#x2F;16]">
-<meta property="og:url" content="https://cidream.github.io/2024/06/16/%E7%AE%97%E6%B3%95%E4%BB%A3%E7%A0%81%E6%A8%A1%E6%9D%BF%E4%B8%80/index.html">
+<meta property="og:title" content="快速排序和快速选择">
+<meta property="og:url" content="https://cidream.github.io/2024/06/19/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F%E5%92%8C%E5%BF%AB%E9%80%9F%E9%80%89%E6%8B%A9/index.html">
 <meta property="og:site_name" content="希梦Cidream">
-<meta property="og:description" content="以下基础算法我会一一简略阐述 “时间永远都不够”  01 快速排序算法 利用分治的原理，将待排序数列用二分的思想分成若干个小区间，对于每一个区间，选取一个基准元素（$basic$），再利用双指针的算法扫描区间，交换元素使大于基准元素在基准元素之后，使小于基准元素的元素在基准元素的元素之前。   算法核心具体来说，该算法分为三步： 一.选取区间$[l,r]$,选取基本元素，分成两个区间$A$与$B">
+<meta property="og:description" content="引入 利用分治的原理，将待排序数分成若干个小区间，对于每一个区间，选取一个基准元素（$basic$），再利用双指针的算法扫描区间，交换元素使大于基准元素在基准元素之后，使小于基准元素的元素在基准元素的元素之前。  分治简述是一种将大区间分成若干个小区间,再合并各个小区间,以解决原问题的思想,通常用于原问题较为复杂的情况下,简化问题的思想——字面意思为分而治之 双指针简述后面我会单独分一章介绍双指针">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://cidream.github.io/img/image-20240617185959492.png">
 <meta property="og:image" content="https://cidream.github.io/img/image-20240617185809960.png">
 <meta property="og:image" content="https://cidream.github.io/img/image-20240617185634619.png">
 <meta property="og:image" content="https://cidream.github.io/img/image-20240617191750790.png">
-<meta property="article:published_time" content="2024-06-16T01:00:00.000Z">
-<meta property="article:modified_time" content="2024-06-18T08:15:54.000Z">
+<meta property="og:image" content="https://cidream.github.io/img/image-20240618183809833-1718798370720-1-1718798380337-3.png">
+<meta property="og:image" content="https://cidream.github.io/img/image-20240619200417490.png">
+<meta property="article:published_time" content="2024-06-19T01:00:00.000Z">
+<meta property="article:modified_time" content="2024-06-20T08:39:34.000Z">
 <meta property="article:author" content="希梦Cidream">
 <meta property="article:tag" content="算法基础课">
-<meta property="article:tag" content="代码模板">
+<meta property="article:tag" content="基础算法">
+<meta property="article:tag" content="排序">
+<meta property="article:tag" content="快速排序">
+<meta property="article:tag" content="快速选择">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://cidream.github.io/img/image-20240617185959492.png">
+<meta name="twitter:image" content="https://cidream.github.io/img/image-20240617185809960.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>算法代码模板一[持续更新1/16] | 希梦Cidream</title>
+  <title>快速排序和快速选择 | 希梦Cidream</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -277,7 +281,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="算法代码模板一[持续更新1/16]"></span>
+            <span id="subtitle" data-typed-text="快速排序和快速选择"></span>
           
         </div>
 
@@ -293,8 +297,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-06-16 09:00" pubdate>
-          2024/06/16
+        <time datetime="2024-06-19 09:00" pubdate>
+          2024/06/19
         </time>
       </span>
     
@@ -305,7 +309,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1k 字
+          2.3k 字
         
       </span>
     
@@ -316,7 +320,7 @@
         
         
         
-          9 分钟
+          20 分钟
         
       </span>
     
@@ -361,39 +365,63 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">算法代码模板一[持续更新1/16]</h1>
+            <h1 id="seo-header">快速排序和快速选择</h1>
             
             
               <div class="markdown-body">
                 
-                <blockquote>
-<p>以下基础算法我会一一简略阐述</p>
-<p>“时间永远都不够”</p>
+                <h1 id="引入"><a href="#引入" class="headerlink" title="引入"></a>引入</h1><blockquote>
+<p>利用<strong>分治</strong>的原理，将待排序数分成若干个小区间，对于每一个区间，选取一个<strong>基准元素</strong>（$basic$），再利用<strong>双指针</strong>的算法扫描区间，交换元素使<strong>大于</strong>基准元素在基准元素之后，使<strong>小于</strong>基准元素的元素在基准元素的元素之前。</p>
 </blockquote>
-<h1 id="01-快速排序算法"><a href="#01-快速排序算法" class="headerlink" title="01 快速排序算法"></a>01 快速排序算法</h1><blockquote>
-<p>利用<strong>分治</strong>的原理，将待排序数列用<strong>二分</strong>的思想分成若干个小区间，对于每一个区间，选取一个<strong>基准元素</strong>（$basic$），再利用<strong>双指针</strong>的算法扫描区间，交换元素使<strong>大于</strong>基准元素在基准元素之后，使<strong>小于</strong>基准元素的元素在基准元素的元素之前。</p>
-<p><img src="/../img/image-20240617185959492.png" srcset="/img/loading.gif" lazyload alt="image-20240617185959492"></p>
+<h1 id="分治简述"><a href="#分治简述" class="headerlink" title="分治简述"></a>分治简述</h1><p>是一种将大区间分成<strong>若干个小区间</strong>,再合并各个<strong>小区间</strong>,以解决<strong>原问题</strong>的思想,通常用于原问题较为<strong>复杂</strong>的情况下,简化问题的思想——字面意思为<strong>分而治之</strong></p>
+<h1 id="双指针简述"><a href="#双指针简述" class="headerlink" title="双指针简述"></a>双指针简述</h1><p>后面我会单独分一章介绍双指针算法,</p>
+<p>双指针算法简单来说就是用两个指针分别从容器前后正反向遍历容器,从两个方向维护数据结构,用法相对灵活</p>
+<h1 id="算法核心"><a href="#算法核心" class="headerlink" title="算法核心"></a>算法核心</h1><p><em>具体来说，该算法分为<strong>三</strong>步：</em></p>
+<h2 id="一-选取区间-l-r-，选取基本元素，分成两个区间-A-与-B"><a href="#一-选取区间-l-r-，选取基本元素，分成两个区间-A-与-B" class="headerlink" title="一.选取区间$[l,r]$，选取基本元素，分成两个区间$A$与$B$"></a>一.选取区间$[l,r]$，选取基本元素，分成两个区间$A$与$B$</h2><blockquote>
+<p>基本元素,用来划分区间,通常为<strong>中间元素</strong>,有时也会用<strong>随机元素</strong>,但一般<strong>不用首尾元素</strong>,防止<strong>结构退化</strong>使时间复杂度退化为$O(n^2)$</p>
+<p>,关于这点我们可以举一个例子,比如一个已经<strong>排好序的数组</strong>,这时,<strong>层数</strong>会变成$N$层,而每层要排列$N$个元素,该算法的时间复杂度会变成$O(n^2)$,这一点,你可以参考下面关于快速排序的<strong>平均时间复杂度</strong>的说明,</p>
 </blockquote>
-<h2 id="算法核心"><a href="#算法核心" class="headerlink" title="算法核心"></a>算法核心</h2><p><em>具体来说，该算法分为<strong>三</strong>步：</em></p>
-<h3 id="一-选取区间-l-r-选取基本元素，分成两个区间-A-与-B"><a href="#一-选取区间-l-r-选取基本元素，分成两个区间-A-与-B" class="headerlink" title="一.选取区间$[l,r]$,选取基本元素，分成两个区间$A$与$B$"></a>一.选取区间$[l,r]$,选取基本元素，分成两个区间$A$与$B$</h3><p><img src="/../img/image-20240617185809960.png" srcset="/img/loading.gif" lazyload alt="区间图"></p>
-<h3 id="二-调整范围，通过交换基本元素之前和之后的元素"><a href="#二-调整范围，通过交换基本元素之前和之后的元素" class="headerlink" title="二.调整范围，通过交换基本元素之前和之后的元素"></a>二.调整范围，通过交换基本元素之前和之后的元素</h3><blockquote>
-<p>基本元素,通常为中间元素,有时也会用随机元素,但一般不用首尾元素防止结构退化使时间复杂度退化为$O(n)$</p>
-</blockquote>
+<p><img src="/../img/image-20240617185809960.png" srcset="/img/loading.gif" lazyload alt="区间图"></p>
+<h2 id="二-调整范围，通过交换基本元素之前和之后的元素"><a href="#二-调整范围，通过交换基本元素之前和之后的元素" class="headerlink" title="二.调整范围，通过交换基本元素之前和之后的元素"></a>二.调整范围，通过交换基本元素之前和之后的元素</h2><p>利用<strong>双指针</strong>的算法扫描区间，交换元素使<strong>大于</strong>基准元素在基准元素之后，使<strong>小于</strong>基准元素的元素在基准元素的元素之前,维护序列,使序列分为两个大小不同的部分,保证后面的元素永远小于等于前面的元素</p>
 <p><img src="/../img/image-20240617185634619.png" srcset="/img/loading.gif" lazyload alt="调整范围"></p>
-<h3 id="三-通过递归处理子区间-A-与-B"><a href="#三-通过递归处理子区间-A-与-B" class="headerlink" title="三.通过递归处理子区间$A$与$B$"></a>三.通过递归处理子区间$A$与$B$</h3><p><img src="/../img/image-20240617191750790.png" srcset="/img/loading.gif" lazyload alt="递归处理"></p>
-<h2 id="算法的性能"><a href="#算法的性能" class="headerlink" title="算法的性能"></a>算法的性能</h2><blockquote>
+<h2 id="三-通过递归处理子区间-A-与-B"><a href="#三-通过递归处理子区间-A-与-B" class="headerlink" title="三.通过递归处理子区间$A$与$B$"></a>三.通过递归处理子区间$A$与$B$</h2><p>重复一二的步骤,递归处理子区间,但所有小区间都满足<strong>后面的元素永远小于等于前面的元素</strong>时,序列就排好序了</p>
+<p><img src="/../img/image-20240617191750790.png" srcset="/img/loading.gif" lazyload alt="递归处理"></p>
+<h1 id="算法的性能"><a href="#算法的性能" class="headerlink" title="算法的性能"></a>算法的性能</h1><blockquote>
 <ol>
-<li>时间复杂度：$O(NlogN)$</li>
-<li>空间复杂度：$O(logN)$</li>
-<li>稳定性：$不稳定$</li>
+<li><p>时间复杂度：平均情况:$O(NlogN)$ 最坏情况:$O(n^2)$</p>
+</li>
+<li><p>空间复杂度：$O(logN)$</p>
+</li>
+<li><p>稳定性：<strong>不稳定</strong></p>
+<p>其实我们也可以通过<strong>二元组双元素排序</strong>使快速排序变得稳定,具体来说就是将每个元素都加上第二标签下标,先按第一标签排序,再按下标排序,这样快速排序就是稳定的了</p>
+</li>
 </ol>
 </blockquote>
-<h2 id="代码模板"><a href="#代码模板" class="headerlink" title="代码模板"></a>代码模板</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">quick_sort</span><span class="hljs-params">(<span class="hljs-type">int</span> q[], <span class="hljs-type">int</span> l, <span class="hljs-type">int</span> r)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">if</span> (l &gt;= r) <span class="hljs-keyword">return</span>;<br><br>    <span class="hljs-type">int</span> i = l - <span class="hljs-number">1</span>, j = r + <span class="hljs-number">1</span>, mid = q[l + r &gt;&gt; <span class="hljs-number">1</span>];<br>    <span class="hljs-keyword">while</span> (i &lt; j)<br>    &#123;<br>        <span class="hljs-keyword">do</span> i ++ ; <span class="hljs-keyword">while</span> (q[i] &lt; mid);<br>        <span class="hljs-keyword">do</span> j -- ; <span class="hljs-keyword">while</span> (q[j] &gt; mid);<br>        <span class="hljs-keyword">if</span> (i &lt; j) <span class="hljs-built_in">swap</span>(q[i], q[j]);<br>    &#125;<br>    <span class="hljs-built_in">quick_sort</span>(q, l, j), <span class="hljs-built_in">quick_sort</span>(q, j + <span class="hljs-number">1</span>, r);<br>  <span class="hljs-comment">//quick_sort(q, l, i - 1), quick_sort(q, i, r);</span><br>  <span class="hljs-comment">//其实上面这一行也可以不过第5行要改为mid = a[l + r &gt;&gt; 1]</span><br>&#125;<br></code></pre></td></tr></table></figure>
+<h1 id="时间复杂度计算"><a href="#时间复杂度计算" class="headerlink" title="时间复杂度计算"></a>时间复杂度计算</h1><p>我们专门计算一下快速排序的时间复杂度</p>
+<p><img src="/./../img/image-20240618183809833-1718798370720-1-1718798380337-3.png" srcset="/img/loading.gif" lazyload alt="时间复杂度"></p>
+<p>一共$logN$层每层递归都要对$N$个元素进行比较，所以快速排序时间复杂度：$O(NlogN)$</p>
+<h1 id="代码模板"><a href="#代码模板" class="headerlink" title="代码模板"></a>代码模板</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">quick_sort</span><span class="hljs-params">(<span class="hljs-type">int</span> q[], <span class="hljs-type">int</span> l, <span class="hljs-type">int</span> r)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">if</span> (l &gt;= r) <span class="hljs-keyword">return</span>;<br><br>    <span class="hljs-type">int</span> i = l - <span class="hljs-number">1</span>, j = r + <span class="hljs-number">1</span>, mid = q[l + r &gt;&gt; <span class="hljs-number">1</span>];<br>    <span class="hljs-keyword">while</span> (i &lt; j)<br>    &#123;<br>        <span class="hljs-keyword">do</span> i ++ ; <span class="hljs-keyword">while</span> (q[i] &lt; mid);<br>        <span class="hljs-keyword">do</span> j -- ; <span class="hljs-keyword">while</span> (q[j] &gt; mid);<br>        <span class="hljs-keyword">if</span> (i &lt; j) <span class="hljs-built_in">swap</span>(q[i], q[j]);<br>    &#125;<br>    <span class="hljs-built_in">quick_sort</span>(q, l, j), <span class="hljs-built_in">quick_sort</span>(q, j + <span class="hljs-number">1</span>, r);<br>  <span class="hljs-comment">//quick_sort(q, l, i - 1), quick_sort(q, i, r);</span><br>  <span class="hljs-comment">//其实上面这一行也可以不过第5行要改为mid = a[l + r &gt;&gt; 1]</span><br>&#125;<br></code></pre></td></tr></table></figure>
 
-<p>其实还有一种更<strong>优雅</strong>的写法</p>
+<p>其实还有一种更<strong>优雅</strong>的写法:</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">quick_sort</span><span class="hljs-params">(<span class="hljs-type">int</span> a[], <span class="hljs-type">int</span> l, <span class="hljs-type">int</span> r)</span> </span>&#123;<br>    <span class="hljs-keyword">if</span> (l &gt;= r) <span class="hljs-keyword">return</span> ;<br><br>    <span class="hljs-type">int</span> i = l, j = r，x = a[l + r &gt;&gt; <span class="hljs-number">1</span>];<br>    <span class="hljs-keyword">while</span> (i &lt;= j) &#123;<br>        <span class="hljs-keyword">while</span>(a[i] &lt; x) i++;<br>        <span class="hljs-keyword">while</span>(a[j] &gt; x) j--;<br>        <span class="hljs-keyword">if</span> (i &lt;= j) <span class="hljs-built_in">swap</span>(a[i++], a[j--]);<br>    &#125;<br>    <span class="hljs-built_in">quick_sort</span>(a, l, j),<span class="hljs-built_in">quick_sort</span>(a, i, r);<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<h2 id="总结，写快排时一定要注重细节！"><a href="#总结，写快排时一定要注重细节！" class="headerlink" title="总结，写快排时一定要注重细节！"></a>总结，写快排时一定要注重细节！</h2><h1 id="02-归并排序算法"><a href="#02-归并排序算法" class="headerlink" title="02 归并排序算法"></a>02 归并排序算法</h1><h1 id="03-整数二分算法"><a href="#03-整数二分算法" class="headerlink" title="03 整数二分算法"></a>03 整数二分算法</h1><h1 id="04-浮点数二分算法"><a href="#04-浮点数二分算法" class="headerlink" title="04 浮点数二分算法"></a>04 浮点数二分算法</h1><h1 id="05-高精度加法"><a href="#05-高精度加法" class="headerlink" title="05 高精度加法"></a>05 高精度加法</h1><h1 id="06-高精度减法"><a href="#06-高精度减法" class="headerlink" title="06 高精度减法"></a>06 高精度减法</h1><h1 id="07-高精度乘以低精度"><a href="#07-高精度乘以低精度" class="headerlink" title="07 高精度乘以低精度"></a>07 高精度乘以低精度</h1><h1 id="08-高精度除以低精度"><a href="#08-高精度除以低精度" class="headerlink" title="08 高精度除以低精度"></a>08 高精度除以低精度</h1><h1 id="09-一维前缀和"><a href="#09-一维前缀和" class="headerlink" title="09 一维前缀和"></a>09 一维前缀和</h1><h1 id="10-二维前缀和"><a href="#10-二维前缀和" class="headerlink" title="10 二维前缀和"></a>10 二维前缀和</h1><h1 id="11-一维差分"><a href="#11-一维差分" class="headerlink" title="11 一维差分"></a>11 一维差分</h1><h1 id="12-二维差分"><a href="#12-二维差分" class="headerlink" title="12 二维差分"></a>12 二维差分</h1><h1 id="13-位运算"><a href="#13-位运算" class="headerlink" title="13 位运算"></a>13 位运算</h1><h1 id="14-双指针算法"><a href="#14-双指针算法" class="headerlink" title="14 双指针算法"></a>14 双指针算法</h1><h1 id="15-离散化"><a href="#15-离散化" class="headerlink" title="15 离散化"></a>15 离散化</h1><h1 id="16-区间合并"><a href="#16-区间合并" class="headerlink" title="16 区间合并"></a>16 区间合并</h1>
+<h1 id="快选算法"><a href="#快选算法" class="headerlink" title="快选算法"></a>快选算法</h1><blockquote>
+<p>如何求第$K$大的数</p>
+</blockquote>
+<p>我们可以先排序数组,再输出第$K$个数字,这样做的时间复杂度显然是$O(NlogN)$</p>
+<h1 id="优化算法"><a href="#优化算法" class="headerlink" title="优化算法"></a>优化算法</h1><p>我们先将思考一下时间被浪费在了哪里</p>
+<p><img src="/./../img/image-20240619200417490.png" srcset="/img/loading.gif" lazyload alt="思考图"></p>
+<p>容易分析出红色框标出的区间的计算时间被浪费了,所以我们可以在递归先判断$K$所属哪个区间,只计算$k$所在的区间即可</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-comment">//采用k是区间的相对位置的传递方法</span><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">quick_sort</span><span class="hljs-params">(<span class="hljs-type">int</span> q[], <span class="hljs-type">int</span> l, <span class="hljs-type">int</span> r, <span class="hljs-type">int</span> k)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">if</span> (l &gt;= r) <span class="hljs-keyword">return</span> q[l];<br><br>    <span class="hljs-type">int</span> i = l - <span class="hljs-number">1</span>, j = r + <span class="hljs-number">1</span>, x = q[l + r &gt;&gt; <span class="hljs-number">1</span>];<br>    <span class="hljs-keyword">while</span> (i &lt; j)<br>    &#123;<br>        <span class="hljs-keyword">do</span> i ++ ; <span class="hljs-keyword">while</span> (q[i] &lt; x);<br>        <span class="hljs-keyword">do</span> j -- ; <span class="hljs-keyword">while</span> (q[j] &gt; x);<br>        <span class="hljs-keyword">if</span> (i &lt; j) <span class="hljs-built_in">swap</span>(q[i], q[j]);<br>    &#125;<br>    <br>    <span class="hljs-keyword">if</span> (j - l + <span class="hljs-number">1</span> &gt;= k) <span class="hljs-keyword">return</span> <span class="hljs-built_in">quick_sort</span>(q, l, j, k);<br>    <span class="hljs-keyword">else</span> <span class="hljs-keyword">return</span> <span class="hljs-built_in">quick_sort</span>(q, j + <span class="hljs-number">1</span>, r, k - (j - l + <span class="hljs-number">1</span>));<br><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>也可以采用<strong>更优雅</strong>的实现方法</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-comment">//采用k是下标即区间的绝对位置的传递方法</span><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">quick_sort</span><span class="hljs-params">(<span class="hljs-type">int</span> l, <span class="hljs-type">int</span> r, <span class="hljs-type">int</span> k)</span> </span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">if</span> (l &gt;= r) <span class="hljs-keyword">return</span> q[l];<br><br>    <span class="hljs-type">int</span> x = q[l + r &gt;&gt; <span class="hljs-number">1</span>];<br>    <span class="hljs-type">int</span> i = l - <span class="hljs-number">1</span>, j = r + <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">while</span> (i &lt; j) &#123;<br>        <span class="hljs-keyword">do</span> i ++ ; <span class="hljs-keyword">while</span> (q[i] &lt; x);<br>        <span class="hljs-keyword">do</span> j -- ; <span class="hljs-keyword">while</span> (q[j] &gt; x);<br>        <span class="hljs-keyword">if</span> (i &lt; j) <span class="hljs-built_in">swap</span>(q[i], q[j]);<br>    &#125;<br>    <span class="hljs-keyword">if</span> (k &lt;= j) <span class="hljs-keyword">return</span> <span class="hljs-built_in">quick_sort</span>(l, j, k);<br>    <span class="hljs-keyword">return</span> <span class="hljs-built_in">quick_sort</span>(j + <span class="hljs-number">1</span>, r, k);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h1 id="总结，写快排和快选时一定要注重细节！"><a href="#总结，写快排和快选时一定要注重细节！" class="headerlink" title="总结，写快排和快选时一定要注重细节！"></a>总结，写快排和快选时一定要注重细节！</h1><p>一定要注意各个区间的边界问题,否则会出各种问题,牢记各种+1和-1的地方</p>
+<blockquote>
+<p>细节决定成败!</p>
+</blockquote>
+
                 
               </div>
             
@@ -416,7 +444,7 @@
   
     <span>></span>
     
-  <a href="/categories/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E8%AF%BE/%E4%BB%A3%E7%A0%81%E6%A8%A1%E6%9D%BF/" class="category-chain-item">代码模板</a>
+  <a href="/categories/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E8%AF%BE/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/" class="category-chain-item">基础算法</a>
   
   
 
@@ -435,7 +463,13 @@
       
         <a href="/tags/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E8%AF%BE/" class="print-no-link">#算法基础课</a>
       
-        <a href="/tags/%E4%BB%A3%E7%A0%81%E6%A8%A1%E6%9D%BF/" class="print-no-link">#代码模板</a>
+        <a href="/tags/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/" class="print-no-link">#基础算法</a>
+      
+        <a href="/tags/%E6%8E%92%E5%BA%8F/" class="print-no-link">#排序</a>
+      
+        <a href="/tags/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/" class="print-no-link">#快速排序</a>
+      
+        <a href="/tags/%E5%BF%AB%E9%80%9F%E9%80%89%E6%8B%A9/" class="print-no-link">#快速选择</a>
       
     </div>
   
@@ -448,6 +482,12 @@
                 <div class="post-prevnext my-3">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/2024/06/20/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/" title="归并排序">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">归并排序</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">
